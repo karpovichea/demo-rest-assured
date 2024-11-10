@@ -2,6 +2,7 @@ package by.vek;
 
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -16,6 +17,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with unregistered email and password")
     public void testLoginWithUnregisteredData() {
         String email = "emailunregistered@gmail.com";
         String password = "2345678";
@@ -32,6 +34,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with incorrect password")
     public void testLoginWithWrongData() {
         String email = "email@gmail.com";
         String password = "111111";
@@ -48,6 +51,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with empty email and password")
     public void testLoginWithEmptyData() {
         String email = "";
         String password = "";
@@ -63,6 +67,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with invalid email format")
     public void testLoginWithInvalidEmail() {
         String email = "email.gmail.com";
         String password = "111111";
@@ -79,6 +84,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with password of invalid length")
     public void testLoginWithInvalidPassword() {
         String email = "email@gmail.com";
         String password = "!!!12";
@@ -95,6 +101,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with empty request body")
     public void testLoginWithInvalidBody() {
         String body = "";
 

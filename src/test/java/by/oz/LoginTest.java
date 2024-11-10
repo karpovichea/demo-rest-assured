@@ -1,6 +1,7 @@
 package by.oz;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -14,6 +15,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with incorrect phone code")
     public void testLoginWithIncorrectPhoneCode() {
         String phone = "375112000000";
 
@@ -29,6 +31,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with correct code but incorrect phone length")
     public void testLoginWithCorrectCodeButIncorrectPhoneLength() {
         String phone = "3752910010";
 
@@ -44,6 +47,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with empty phone number")
     public void testLoginWithEmptyPhone() {
         String phone = "";
 
@@ -59,6 +63,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with invalid symbols in phone number")
     public void testLoginWithInvalidSymbolsInPhone() {
         String phone = "37529%123456";
 
@@ -74,6 +79,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with empty request body")
     public void testLoginWithInvalidBody() {
         String body = "";
 
@@ -89,6 +95,7 @@ public class LoginTest {
     }
 
     @Test
+    @DisplayName("Login with valid phone number")
     public void testLoginWithValidPhone() {
         String phone = "375293000000";
 
