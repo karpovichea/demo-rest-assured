@@ -14,12 +14,12 @@ public class LoginTest {
     }
 
     @Test
-    public void testRejectPhoneWithIncorrectCode() {
-        String invalidPhone = "375112000000";
+    public void testLoginWithIncorrectPhoneCode() {
+        String phone = "375112000000";
 
         given()
                 .spec(LoginRequest.requestSpecification)
-                .body(LoginRequest.getBody(invalidPhone))
+                .body(LoginRequest.getBody(phone))
                 .when()
                 .post()
                 .then()
@@ -29,12 +29,12 @@ public class LoginTest {
     }
 
     @Test
-    public void testRejectPhoneWithCorrectCodeButIncorrectLength() {
-        String invalidPhone = "3752910010";
+    public void testLoginWithCorrectCodeButIncorrectPhoneLength() {
+        String phone = "3752910010";
 
         given()
                 .spec(LoginRequest.requestSpecification)
-                .body(LoginRequest.getBody(invalidPhone))
+                .body(LoginRequest.getBody(phone))
                 .when()
                 .post()
                 .then()
@@ -44,12 +44,12 @@ public class LoginTest {
     }
 
     @Test
-    public void testRejectEmptyPhone() {
-        String invalidPhone = "";
+    public void testLoginWithEmptyPhone() {
+        String phone = "";
 
         given()
                 .spec(LoginRequest.requestSpecification)
-                .body(LoginRequest.getBody(invalidPhone))
+                .body(LoginRequest.getBody(phone))
                 .when()
                 .post()
                 .then()
@@ -59,12 +59,12 @@ public class LoginTest {
     }
 
     @Test
-    public void testRejectPhoneWithInvalidSymbols() {
-        String invalidPhone = "37529%123456";
+    public void testLoginWithInvalidSymbolsInPhone() {
+        String phone = "37529%123456";
 
         given()
                 .spec(LoginRequest.requestSpecification)
-                .body(LoginRequest.getBody(invalidPhone))
+                .body(LoginRequest.getBody(phone))
                 .when()
                 .post()
                 .then()
@@ -74,12 +74,12 @@ public class LoginTest {
     }
 
     @Test
-    public void testRejectRequestWithInvalidBody() {
-        String invalidBody = "";
+    public void testLoginWithInvalidBody() {
+        String body = "";
 
         given()
                 .spec(LoginRequest.requestSpecification)
-                .body(invalidBody)
+                .body(body)
                 .when()
                 .post()
                 .then()
@@ -89,12 +89,12 @@ public class LoginTest {
     }
 
     @Test
-    public void testSendSmsCodeWithValidPhone() {
-        String validPhone = "375293000000";
+    public void testLoginWithValidPhone() {
+        String phone = "375293000000";
 
         given()
                 .spec(LoginRequest.requestSpecification)
-                .body(LoginRequest.getBody(validPhone))
+                .body(LoginRequest.getBody(phone))
                 .when()
                 .post()
                 .then()
