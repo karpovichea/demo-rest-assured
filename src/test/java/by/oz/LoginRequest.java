@@ -4,7 +4,6 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
 public class LoginRequest {
-
     public static RequestSpecification requestSpecification;
 
     public static void initRequestSpecification() {

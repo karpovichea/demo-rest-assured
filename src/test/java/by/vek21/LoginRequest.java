@@ -1,4 +1,4 @@
-package by.vek;
+package by.vek21;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;

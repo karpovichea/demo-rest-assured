@@ -79,9 +79,9 @@ public class LoginTest {
     }
 
     @Test
-    @DisplayName("Login with empty request body")
+    @DisplayName("Login with invalidrequest body")
     public void testLoginWithInvalidBody() {
-        String body = "";
+        String body = "{";
 
         given()
                 .spec(LoginRequest.requestSpecification)

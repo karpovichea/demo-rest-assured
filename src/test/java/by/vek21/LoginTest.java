@@ -1,6 +1,5 @@
-package by.vek;
+package by.vek21;
 
-import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,16 +8,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class LoginTest {
-    private static RequestSpecification requestSpecification;
-
     @BeforeAll
     static void beforeAll() {
         LoginRequest.initRequestSpecification();
     }
 
     @Test
-    @DisplayName("Login with unregistered email and password")
-    public void testLoginWithUnregisteredData() {
+    @DisplayName("Login with unregistered email")
+    public void testLoginWithUnregisteredEmail() {
         String email = "emailunregistered@gmail.com";
         String password = "2345678";
 
@@ -35,7 +32,7 @@ public class LoginTest {
 
     @Test
     @DisplayName("Login with incorrect password")
-    public void testLoginWithWrongData() {
+    public void testLoginWithIncorrectPassword() {
         String email = "email@gmail.com";
         String password = "111111";
 
@@ -52,7 +49,7 @@ public class LoginTest {
 
     @Test
     @DisplayName("Login with empty email and password")
-    public void testLoginWithEmptyData() {
+    public void testLoginWithEmptyEmailAndPassword() {
         String email = "";
         String password = "";
 
@@ -68,7 +65,7 @@ public class LoginTest {
 
     @Test
     @DisplayName("Login with invalid email format")
-    public void testLoginWithInvalidEmail() {
+    public void testLoginWithInvalidEmailFormat() {
         String email = "email.gmail.com";
         String password = "111111";
 
@@ -85,7 +82,7 @@ public class LoginTest {
 
     @Test
     @DisplayName("Login with password of invalid length")
-    public void testLoginWithInvalidPassword() {
+    public void testLoginWithInvalidPasswordFormat() {
         String email = "email@gmail.com";
         String password = "!!!12";
 
@@ -101,9 +98,9 @@ public class LoginTest {
     }
 
     @Test
-    @DisplayName("Login with empty request body")
+    @DisplayName("Login with invalid request body")
     public void testLoginWithInvalidBody() {
-        String body = "";
+        String body = "{";
 
         given()
                 .spec(LoginRequest.requestSpecification)
